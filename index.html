@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Marketly Tech — curated electronics deals, buying guides, gaming gear, laptops, PCs and refurbished phones.">
+<meta name="theme-color" content="#ff5a1f">
+<title>Marketly Tech — Find tech worth buying</title>
+<style>
+:root{--bg:#f5f6f8;--ink:#111316;--muted:#697078;--line:#dfe3e7;--card:#fff;--orange:#ff5a1f;--dark:#111316;--green:#229b68;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink)}button,input{font:inherit}button{cursor:pointer}.top{background:var(--dark);color:#fff;text-align:center;font-size:11px;font-weight:800;letter-spacing:.12em;padding:9px}.top b{color:#ff8256}.header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:22px;padding:16px max(18px,4vw)}.brand{font-size:24px;font-weight:900;letter-spacing:-.04em;text-decoration:none;color:var(--ink);white-space:nowrap}.brand em{color:var(--orange);font-style:normal}.search{flex:1;position:relative}.search input{width:100%;height:46px;border:1px solid #cdd2d7;border-radius:999px;padding:0 46px;outline:none;background:#f8f9fa}.search input:focus{border-color:var(--orange);box-shadow:0 0 0 4px #ff5a1f14}.search span{position:absolute;left:17px;top:10px;color:#7b8188;font-size:22px}.saved{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;font-weight:800}.nav{background:#fff;border-bottom:1px solid var(--line);overflow:auto}.navin{display:flex;gap:6px;padding:0 max(18px,4vw);min-width:max-content}.nav button{border:0;background:none;padding:14px 13px;color:#666d74;font-weight:800;border-bottom:2px solid transparent}.nav button.active{color:var(--ink);border-bottom-color:var(--orange)}main{max-width:1480px;margin:auto}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:76px max(18px,4vw) 68px}.eyebrow{font-size:11px;font-weight:900;letter-spacing:.18em;color:#777}.hero h1{font-size:clamp(54px,7vw,92px);line-height:.9;letter-spacing:-.07em;margin:16px 0 22px}.hero h1 em{color:var(--orange);font-style:normal}.hero p{max-width:690px;color:var(--muted);font-size:18px;line-height:1.65}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.primary,.secondary{border-radius:999px;padding:13px 19px;font-weight:900}.primary{background:var(--dark);color:#fff;border:1px solid var(--dark)}.primary:hover{background:var(--orange);border-color:var(--orange)}.secondary{background:#fff;border:1px solid #bfc5cb}.visual{min-height:460px;border-radius:32px;background:linear-gradient(140deg,#ff7e48,#121518 54%,#262c33);padding:25px;display:flex;align-items:flex-end;position:relative;overflow:hidden;box-shadow:0 25px 60px #1112}.visual:before{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:#ffffff18;right:-70px;top:-70px}.visualcard{background:#fff;border-radius:24px;padding:22px;max-width:310px;position:relative;z-index:1}.visualcard b{display:block;font-size:28px;line-height:1.05;margin-top:8px}.visualcard span{display:block;margin-top:10px;color:#666;font-size:12px;line-height:1.5}.visualcard strong{display:inline-block;margin-top:15px;background:#111;color:#fff;border-radius:999px;padding:8px 11px;font-size:11px}.section{padding:65px max(18px,4vw)}.dark{background:var(--dark);color:#fff;max-width:none}.sectionin{max-width:1336px;margin:auto}.rowhead{display:flex;justify-content:space-between;gap:20px;align-items:end}.rowhead h2{font-size:clamp(34px,4vw,56px);letter-spacing:-.055em;margin:9px 0 0}.sub{font-size:13px;color:#858b92;line-height:1.5}.dark .sub{color:#aeb3b8}.timer{display:flex;gap:5px;align-items:center}.timer b{background:#22272c;border:1px solid #353a40;border-radius:10px;padding:8px 10px;font-size:21px}.timer i{color:var(--orange);font-style:normal}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:29px}.grid3{grid-template-columns:repeat(3,1fr)}.card{min-width:0}.thumb{aspect-ratio:1/.86;border-radius:22px;background:linear-gradient(145deg,#e7eaed,#cdd3d8);position:relative;overflow:hidden;display:grid;place-items:center}.thumb .icon{font-size:86px;filter:drop-shadow(0 18px 18px #0002)}.badge{position:absolute;top:11px;left:11px;background:#fff;border-radius:999px;padding:7px 9px;font-size:10px;font-weight:900}.heart{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:1px solid #ffffffcc;background:#fff;color:#4d5359}.heart.on{color:var(--orange)}.cardmeta{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font-size:11px;color:#858b92}.card h3{font-size:18px;margin:8px 0 5px;letter-spacing:-.02em}.why{font-size:12px;line-height:1.45;color:#6f767d;min-height:34px}.price{display:flex;gap:8px;align-items:center;margin-top:8px}.price strong{font-size:17px}.price del{font-size:12px;color:#90969b}.price span{font-size:10px;background:#ffe2d8;color:#b84c1e;border-radius:999px;padding:4px 6px;font-weight:900}.merchant{margin-top:7px;font-size:11px;color:#7b8187}.merchant b{color:#454b50}.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.links a{border:1px solid #d9dee3;background:#fff;border-radius:999px;padding:6px 8px;font-size:10px;font-weight:900;text-decoration:none;color:#2f353a}.links a:hover{border-color:var(--orange);color:var(--orange)}.guides{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.guide{background:#f8f9fa;border:1px solid var(--line);border-radius:20px;padding:22px}.guide b{font-size:10px;letter-spacing:.15em;color:var(--orange)}.guide h3{font-size:23px;letter-spacing:-.04em;margin:10px 0}.guide p{font-size:13px;line-height:1.55;color:#737a81}.guide button{border:0;background:none;padding:0;font-weight:900}.disclosure{margin-top:22px;background:#fff7f3;border:1px solid #ffd2c3;border-radius:14px;padding:14px;font-size:12px;line-height:1.5;color:#6a5249}.footer{background:var(--dark);color:#aeb4ba;padding:28px max(18px,4vw);font-size:11px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.footer strong{color:#fff}.toast{position:fixed;right:20px;bottom:20px;background:#111;color:#fff;border-radius:12px;padding:13px 15px;z-index:100;font-weight:800}.modalbg{position:fixed;inset:0;background:#1118;display:grid;place-items:center;padding:20px;z-index:90}.modal{background:#fff;max-width:720px;width:100%;border-radius:24px;padding:24px;max-height:85vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;gap:18px}.close{border:0;background:#edf0f2;width:36px;height:36px;border-radius:50%;font-size:22px}
+@media(max-width:950px){.header{flex-wrap:wrap}.search{order:3;flex-basis:100%}.hero{grid-template-columns:1fr}.visual{min-height:390px}.grid,.grid3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.hero{padding-top:48px}.hero h1{font-size:56px}.grid,.grid3{grid-template-columns:1fr}.visual{min-height:320px}.rowhead{align-items:flex-start;flex-direction:column}.timer{order:-1}}
+</style>
+</head>
+<body>
+<div class="top">MARKETLY TECH <b>•</b> CURATED DEALS & BUYING GUIDES <b>•</b> SOME LINKS MAY EARN US A COMMISSION</div>
+<header class="header">
+<a class="brand" href="#top">marketly<em>.tech</em></a>
+<div class="search"><span>⌕</span><input id="q" placeholder="Search PCs, laptops, iPhones, gaming gear…"></div>
+<button class="saved" id="saved">♡ 0 saved</button>
+</header>
+<nav class="nav"><div class="navin" id="nav"></div></nav>
+<main id="top">
+<section class="hero">
+<div>
+<div class="eyebrow">MARKETLY TECH</div>
+<h1>Find tech<br><em>worth buying.</em></h1>
+<p>Curated PCs, laptops, gaming gear, accessories and refurbished devices. Compare offers, read practical buying guidance, then shop from the merchant.</p>
+<div class="buttons"><button class="primary" id="pickBtn">Explore editor picks →</button><button class="secondary" id="guideBtn">Browse guides</button></div>
+<p style="font-size:12px;margin-top:18px">The merchant handles checkout, payment, shipping, returns and customer service.</p>
+</div>
+<div class="visual"><div class="visualcard"><div class="eyebrow">EDITORIAL TECH PICKS</div><b>Stop browsing.<br>Start comparing.</b><span>One focused place for the tech categories shoppers actually care about.</span><strong>PCs · Laptops · Gaming · Refurbished</strong></div></div>
+</section>
+
+<section class="section dark" id="deals"><div class="sectionin">
+<div class="rowhead"><div><div class="eyebrow" style="color:var(--orange)">DEAL RADAR</div><h2>Worth a look today.</h2><div class="sub">Reference pricing only. Verify the merchant page before buying.</div></div><div class="timer"><b id="h">12</b><i>:</i><b id="m">00</b><i>:</i><b id="s">00</b></div></div>
+<div class="grid" id="dealGrid"></div>
+</div></section>
+
+<section class="section" id="picks"><div class="sectionin">
+<div class="rowhead"><div><div class="eyebrow">EDITOR PICKS</div><h2>Popular tech to compare.</h2><div class="sub">Curated examples for the storefront. Replace affiliate URLs with approved links after joining each program.</div></div></div>
+<div class="grid grid3" id="grid"></div>
+</div></section>
+
+<section class="section guides" id="guides"><div class="sectionin">
+<div class="rowhead"><div><div class="eyebrow">BUYING GUIDES</div><h2>Shop smarter.</h2><div class="sub">This is the content engine for search, email and social marketing.</div></div></div>
+<div class="grid grid3">
+<article class="guide"><b>GUIDE 01</b><h3>Best gaming PC for your budget</h3><p>How to compare GPU class, CPU balance, RAM, storage, power and upgrade paths.</p><button onclick="showGuide('pc')">Read checklist →</button></article>
+<article class="guide"><b>GUIDE 02</b><h3>How to shop refurbished phones</h3><p>Check model year, battery health, unlocked status, condition grade, warranty and returns.</p><button onclick="showGuide('phone')">Read checklist →</button></article>
+<article class="guide"><b>GUIDE 03</b><h3>Build a gaming setup without overspending</h3><p>Prioritize the monitor, inputs and audio that matter to the way you actually play.</p><button onclick="showGuide('setup')">Read checklist →</button></article>
+</div>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> Some outbound links on Marketly Tech are affiliate links. We may earn a commission from qualifying purchases at no additional cost to you.</div>
+</div></section>
+
+<section class="section"><div class="sectionin"><div class="rowhead"><div><div class="eyebrow">STARTING CATEGORIES</div><h2>Shop by need.</h2><div class="sub">Focused categories designed for affiliate content and product comparisons.</div></div></div><div class="grid grid3" id="categoryCards"></div></div></section>
+</main>
+
+<footer class="footer"><div><strong>marketly.tech</strong><br>Find tech worth buying.</div><div>© 2026 Marketly Tech · Affiliate links may earn a commission.</div><div><a href="#guides" style="color:#fff">Guides</a> · <a href="#picks" style="color:#fff">Picks</a></div></footer>
+
+<script>
+const categories=[['All','✨'],['Desktop PCs','🖥️'],['Laptops','💻'],['Gaming','🎮'],['Refurbished Phones','📱'],['PC Accessories','⌨️'],['Audio','🎧']];
+const products=[
+{id:1,name:'Gaming Desktop PC',cat:'Desktop PCs',icon:'🖥️',price:999,compare:1199,merchant:'Newegg',why:'A strong starting point for 1080p and 1440p gaming.',affiliateUrl:'',deal:true},
+{id:2,name:'Creator Laptop',cat:'Laptops',icon:'💻',price:899,compare:1099,merchant:'Best Buy',why:'Portable performance for work, school and creative apps.',affiliateUrl:'',deal:true},
+{id:3,name:'Refurbished iPhone',cat:'Refurbished Phones',icon:'📱',price:399,compare:699,merchant:'Back Market',why:'Save on a recent model while checking warranty and return terms.',affiliateUrl:'',deal:true},
+{id:4,name:'Mechanical Gaming Keyboard',cat:'Gaming',icon:'⌨️',price:69,compare:99,merchant:'Amazon',why:'A low-cost upgrade that changes how a gaming setup feels.',affiliateUrl:'',deal:true},
+{id:5,name:'Wireless Gaming Headset',cat:'Gaming',icon:'🎧',price:79,compare:119,merchant:'Logitech',why:'Wireless convenience for gaming and everyday calls.',affiliateUrl:''},
+{id:6,name:'27-inch Gaming Monitor',cat:'Gaming',icon:'🖥️',price:229,compare:299,merchant:'B&H Photo',why:'A practical 1440p class display to pair with a capable PC.',affiliateUrl:''},
+{id:7,name:'1TB NVMe SSD',cat:'PC Accessories',icon:'💾',price:74,compare:99,merchant:'Newegg',why:'Fast storage for Windows, games and large creative projects.',affiliateUrl:''},
+{id:8,name:'USB-C Laptop Dock',cat:'PC Accessories',icon:'🔌',price:89,compare:129,merchant:'Lenovo',why:'One cable for display, charging, USB devices and networking.',affiliateUrl:''},
+{id:9,name:'Unlocked Galaxy Phone',cat:'Refurbished Phones',icon:'📲',price:329,compare:549,merchant:'eBay',why:'Compare condition, battery policy, warranty and seller history.',affiliateUrl:''}
+];
+const merchantBase={Amazon:'https://www.amazon.com/s?k=',eBay:'https://www.ebay.com/sch/i.html?_nkw=',Newegg:'https://www.newegg.com/p/pl?d=', 'Best Buy':'https://www.bestbuy.com/site/searchpage.jsp?st=', 'B&H Photo':'https://www.bhphotovideo.com/c/search?q=', 'Back Market':'https://www.backmarket.com/en-us/search?q=', Lenovo:'https://www.lenovo.com/us/en/search?text=', Logitech:'https://www.logitech.com/en-us/search?q='};
+let category='All',query='',saved=JSON.parse(localStorage.getItem('marketly-saved')||'[]');
+let ends=Number(localStorage.getItem('marketly-deal-end')||0); if(!ends||ends<Date.now()){ends=Date.now()+12*60*60*1000;localStorage.setItem('marketly-deal-end',ends)}
+
+function esc(v){return String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function merchantUrl(p){return p.affiliateUrl||((merchantBase[p.merchant]||'https://www.google.com/search?q=')+encodeURIComponent(p.name))}
+function card(p){
+const on=saved.includes(p.id);
+return '<article class="card"><div class="thumb"><span class="icon">'+p.icon+'</span><span class="badge">'+(p.deal?'Deal pick':'Editor pick')+'</span><button class="heart '+(on?'on':'')+'" onclick="toggleSave('+p.id+')">'+(on?'♥':'♡')+'</button></div><div class="cardmeta"><span>'+esc(p.cat)+'</span><span>★ 4.7</span></div><h3>'+esc(p.name)+'</h3><div class="why">'+esc(p.why)+'</div><div class="price"><strong>$'+p.price+'</strong><del>$'+p.compare+'</del><span>REF</span></div><div class="merchant">Shop at <b>'+esc(p.merchant)+'</b></div><div class="links"><a href="'+merchantUrl(p)+'" target="_blank" rel="sponsored nofollow noopener">View deal →</a></div></article>'}
+function renderNav(){document.getElementById('nav').innerHTML=categories.map(c=>'<button class="'+(category===c[0]?'active':'')+'" onclick="setCat(\''+c[0].replace(/'/g,"\\'")+'\')">'+c[1]+' '+c[0]+'</button>').join('')}
+function list(){return products.filter(p=>(category==='All'||p.cat===category)&&(!query||JSON.stringify(p).toLowerCase().includes(query.toLowerCase())))}
+function render(){renderNav();const all=list();document.getElementById('dealGrid').innerHTML=products.filter(p=>p.deal).slice(0,4).map(card).join('');document.getElementById('grid').innerHTML=all.slice(0,6).map(card).join('')||'<div style="color:#777">No matching picks yet.</div>';document.getElementById('saved').textContent='♡ '+saved.length+' saved';document.getElementById('categoryCards').innerHTML=categories.slice(1).map(c=>'<article class="guide"><b>'+c[1]+' '+c[0].toUpperCase()+'</b><h3>'+c[0]+'</h3><p>Curated picks, comparison links and buying guidance for '+c[0].toLowerCase()+'.</p><button onclick="setCat(\''+c[0].replace(/'/g,"\\'")+'\');scrollTo({top:document.getElementById(\'picks\').offsetTop-70,behavior:\'smooth\'})">Explore →</button></article>').join('')}
+function setCat(c){category=c;render();scrollTo({top:document.getElementById('picks').offsetTop-70,behavior:'smooth'})}
+function toggleSave(id){saved=saved.includes(id)?saved.filter(x=>x!==id):saved.concat(id);localStorage.setItem('marketly-saved',JSON.stringify(saved));render();toast(saved.includes(id)?'Saved pick':'Removed from saved')}
+function toast(t){const x=document.createElement('div');x.className='toast';x.textContent='✓ '+t;document.body.appendChild(x);setTimeout(()=>x.remove(),1500)}
+function showGuide(kind){const data={pc:['Gaming PC checklist',['Start with the GPU target.','Balance CPU, RAM and power around that GPU.','Prefer upgradeable storage and memory.','Compare warranty and return terms.']],phone:['Refurbished phone checklist',['Confirm exact model and storage.','Check unlocked status and carrier compatibility.','Review battery-health policy.','Read the warranty and return window.']],setup:['Gaming setup checklist',['Choose the monitor before accessories.','Spend on input devices you actually prefer.','Add audio after the core setup.','Avoid paying for specs your PC cannot use.']]}[kind];const bg=document.createElement('div');bg.className='modalbg';bg.innerHTML='<div class="modal"><div class="modalhead"><h2>'+data[0]+'</h2><button class="close">×</button></div><ul>'+data[1].map(x=>'<li style="margin:12px 0;color:#5e656c">'+esc(x)+'</li>').join('')+'</ul><div class="disclosure">Shopping guidance only. Verify current specifications, pricing, warranty and return terms on the merchant page before purchase.</div></div>';bg.onclick=e=>{if(e.target===bg)bg.remove()};bg.querySelector('.close').onclick=()=>bg.remove();document.body.appendChild(bg)}
+document.getElementById('q').oninput=e=>{query=e.target.value;render()};
+document.getElementById('pickBtn').onclick=()=>scrollTo({top:document.getElementById('picks').offsetTop-70,behavior:'smooth'});
+document.getElementById('guideBtn').onclick=()=>scrollTo({top:document.getElementById('guides').offsetTop-70,behavior:'smooth'});
+document.getElementById('saved').onclick=()=>toast(saved.length?saved.length+' saved picks':'No saved picks yet');
+function tick(){let ms=Math.max(0,ends-Date.now());const h=Math.floor(ms/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);document.getElementById('h').textContent=String(h).padStart(2,'0');document.getElementById('m').textContent=String(m).padStart(2,'0');document.getElementById('s').textContent=String(s).padStart(2,'0');if(!ms){ends=Date.now()+12*60*60*1000;localStorage.setItem('marketly-deal-end',ends)}}setInterval(tick,1000);tick();render();
+</script>
+</body>
+</html>
