@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0d18">
+<title>LaunchForge — AI Product Launch Factory</title>
+<style>
+:root{--bg:#080a12;--panel:#101321;--panel2:#0d101b;--line:#20263b;--text:#edf0ff;--muted:#8e97b4;--blue:#3db7ff;--violet:#7c6bff;--accent:#6d5cff;--green:#54e0a1;--amber:#ffc46b;--danger:#ff7297;--radius:16px}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 65% -10%,rgba(109,92,255,.16),transparent 35%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer}
+.app{min-height:100vh;display:grid;grid-template-columns:232px minmax(0,1fr) 344px;grid-template-rows:64px 1fr}
+.sidebar{grid-row:1/3;border-right:1px solid var(--line);background:rgba(8,10,18,.92);padding:20px 14px;position:sticky;top:0;height:100vh}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 10px 24px}
+.brand img{width:34px;height:34px}.brand strong{font-size:16px;letter-spacing:-.02em}.brand span{display:block;color:#7380a4;font-size:10px;margin-top:1px}
+.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#9ba5c2;text-align:left;padding:12px 12px;border-radius:11px;display:flex;gap:11px;align-items:center}.nav button:hover,.nav button.active{background:#171b2d;color:#fff}.ico{width:17px;height:17px;display:grid;place-items:center;color:#8390b4;font-size:15px}.nav button.active .ico{color:#b2a9ff}
+.sidefoot{position:absolute;left:14px;right:14px;bottom:18px;border-top:1px solid var(--line);padding:16px 10px;color:#687391;font-size:11px}
+.top{grid-column:2/4;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:rgba(9,11,20,.78);backdrop-filter:blur(14px);position:sticky;top:0;z-index:5}
+.project{display:flex;align-items:center;gap:10px}.crumb{color:#6f7893}.project input{background:transparent;border:0;color:#eef0ff;font-weight:700;outline:0;width:190px}
+.status{display:flex;align-items:center;gap:12px}.pill{border:1px solid #26304a;background:#111628;color:#9ca8c8;border-radius:999px;padding:7px 10px;font-size:11px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(84,224,161,.8);display:inline-block;margin-right:7px}
+.workspace{grid-column:2;min-width:0;padding:22px 24px 28px;overflow:hidden}.hero{display:flex;justify-content:space-between;align-items:end;gap:18px;margin:4px 0 22px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#767fa0}.hero h1{margin:7px 0 0;font-size:30px;letter-spacing:-.04em}.hero p{color:var(--muted);max-width:650px;margin:8px 0 0;line-height:1.5;font-size:13px}
+.actions{display:flex;gap:8px}.btn{border:1px solid var(--line);background:#14182a;color:#dce2fa;border-radius:11px;padding:9px 12px;font-size:12px}.btn.primary{border-color:#5a4ee5;background:linear-gradient(135deg,#6d5cff,#4b8fff);color:#fff;box-shadow:0 8px 24px rgba(91,75,237,.26)}.btn:hover{filter:brightness(1.08)}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:18px}.stage{border:1px solid var(--line);background:linear-gradient(180deg,#101424,#0e111c);border-radius:14px;padding:12px;min-width:0}.stage.active{border-color:#5148c9;box-shadow:inset 0 0 0 1px rgba(124,107,255,.12);background:linear-gradient(180deg,#15152b,#10121e)}.stage.done{border-color:#234d43}.stage .num{font-size:10px;color:#69748f}.stage .name{margin-top:7px;font-weight:700;font-size:12px}.stage .meta{margin-top:7px;font-size:10px;color:#6e7897;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.grid{display:grid;grid-template-columns:1.4fr .9fr;gap:14px}.card{border:1px solid var(--line);background:rgba(15,18,31,.9);border-radius:var(--radius);padding:16px}.card h3{font-size:13px;margin:0 0 10px}.card p{font-size:12px;color:var(--muted);line-height:1.55}
+.gate{display:flex;justify-content:space-between;gap:12px;align-items:start}.tag{display:inline-flex;align-items:center;gap:7px;border:1px solid #2a3150;color:#aeb7d0;background:#11162a;padding:5px 8px;border-radius:999px;font-size:10px}
+.big{font-size:20px;font-weight:800;letter-spacing:-.03em;margin:8px 0 6px}.muted{color:var(--muted)}.list{display:grid;gap:9px;margin-top:14px}.row{display:flex;gap:10px;align-items:flex-start;border-top:1px solid #1c2233;padding-top:10px}.check{width:18px;height:18px;border:1px solid #2f3854;border-radius:6px;display:grid;place-items:center;color:var(--green);font-size:11px;flex:0 0 auto}.check.on{background:#12382d;border-color:#2f7d64}.row b{font-size:11px}.row span{display:block;font-size:10px;color:#747f9e;margin-top:3px;line-height:1.45}
+.activity{display:grid;gap:9px}.event{display:flex;gap:9px;font-size:11px}.event .mark{width:8px;height:8px;border-radius:50%;margin-top:4px;background:#6d5cff;box-shadow:0 0 10px rgba(109,92,255,.55);flex:0 0 auto}.event small{display:block;color:#666f8a;margin-top:2px}
+.right{grid-column:3;border-left:1px solid var(--line);background:linear-gradient(180deg,#0e111d,#0a0c14);padding:18px;overflow:auto}.aihead{display:flex;justify-content:space-between;align-items:center}.aiid{display:flex;align-items:center;gap:10px}.avatar{width:36px;height:36px;border-radius:12px;padding:7px;background:#141936;border:1px solid #2a3154}.aihead strong{font-size:13px}.aihead span{display:block;font-size:10px;color:#6e7898;margin-top:2px}
+.progress{margin:18px 0;border:1px solid var(--line);padding:12px;border-radius:13px;background:#0c0f19}.progbar{height:6px;border-radius:99px;background:#1b2131;overflow:hidden;margin-top:8px}.progbar i{display:block;height:100%;width:42%;background:linear-gradient(90deg,var(--violet),var(--blue));border-radius:inherit}.progline{display:flex;justify-content:space-between;font-size:10px;color:#77829e}
+.chat{display:grid;gap:10px;max-height:46vh;overflow:auto;padding-right:2px}.msg{max-width:93%;padding:10px 11px;border-radius:12px;font-size:11px;line-height:1.5}.msg.ai{background:#15192a;border:1px solid #222a40;color:#d8def0}.msg.user{margin-left:auto;background:#1c2050;border:1px solid #3737a0;color:#eef0ff}
+.suggestions{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}.chip{border:1px solid #252d48;background:#101529;color:#9ea8c4;border-radius:999px;padding:6px 8px;font-size:9px}.chip:hover{color:#fff;border-color:#4038a5}
+.composer{border:1px solid #2b3350;border-radius:14px;background:#0d101a;padding:8px;margin-top:12px}.composer textarea{width:100%;min-height:70px;resize:none;background:transparent;border:0;outline:0;color:#ecf0ff;font-size:11px;padding:4px}.sendline{display:flex;justify-content:space-between;align-items:center}.hint{font-size:9px;color:#636d88}.send{border:0;border-radius:10px;padding:8px 11px;background:#6d5cff;color:#fff;font-size:10px}
+.kv{display:grid;grid-template-columns:92px 1fr;gap:7px;font-size:10px;margin-top:12px}.kv b{color:#66718f;font-weight:600}.kv span{color:#bdc5d9}
+.modal{position:fixed;inset:0;background:rgba(4,5,10,.72);display:none;place-items:center;z-index:20;padding:18px}.modal.show{display:grid}.modalbox{width:min(760px,100%);border:1px solid #2b3350;background:#0e111c;border-radius:18px;padding:18px;box-shadow:0 30px 100px rgba(0,0,0,.5)}.modalbox pre{white-space:pre-wrap;max-height:65vh;overflow:auto;color:#c7cee2;font-size:10px;line-height:1.55}.close{float:right;border:0;background:#171b2b;color:#aeb8d0;border-radius:9px;padding:7px}
+@media(max-width:1100px){.app{grid-template-columns:196px minmax(0,1fr)}.right{grid-column:2;border-left:0;border-top:1px solid var(--line)}.top{grid-column:2}.workspace{grid-column:2}.stages{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.app{display:block}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line);padding-bottom:10px}.nav{grid-template-columns:repeat(3,1fr)}.sidefoot{display:none}.top{position:relative;padding:12px 16px}.workspace,.right{padding:16px}.grid{grid-template-columns:1fr}.hero{display:block}.actions{margin-top:12px}.stages{grid-template-columns:1fr 1fr}.project input{width:130px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><img src="logo.svg" alt="LaunchForge"><div><strong>LaunchForge</strong><span>AI PRODUCT LAUNCH FACTORY</span></div></div>
+  <nav class="nav">
+    <button class="active" data-tab="workspace"><span class="ico">◈</span>Workspace</button>
+    <button data-tab="research"><span class="ico">⌕</span>Research</button>
+    <button data-tab="architecture"><span class="ico">⌘</span>Architecture</button>
+    <button data-tab="monetize"><span class="ico">◇</span>Monetization</button>
+    <button data-tab="launch"><span class="ico">↗</span>Launch Plan</button>
+    <button data-tab="settings"><span class="ico">⚙</span>Settings</button>
+  </nav>
+  <div class="sidefoot">Evidence-aware. Execution-focused.<br>Built for founders who ship.</div>
+</aside>
+<header class="top">
+  <div class="project"><span class="crumb">PROJECT</span><input id="projectName" value="Untitled Product"></div>
+  <div class="status"><span class="pill"><span class="dot"></span>LaunchForge AI ready</span><button class="btn" id="exportBtn">Export Blueprint</button></div>
+</header>
+
+<main class="workspace">
+  <section class="hero">
+    <div><div class="eyebrow">AI PRODUCT LAUNCH FACTORY</div><h1>Turn an idea into a shipped product.</h1><p>LaunchForge combines research, product strategy, architecture, monetization, and launch execution into one continuous workspace.</p></div>
+    <div class="actions"><button class="btn" id="newBtn">New project</button><button class="btn primary" id="advanceBtn">Complete current gate →</button></div>
+  </section>
+
+  <section class="stages" id="stages"></section>
+
+  <section class="grid">
+    <article class="card">
+      <div class="gate"><div><span class="tag" id="gateTag">CURRENT GATE</span><div class="big" id="gateTitle">IDEA</div><div class="muted" id="gateDesc"></div></div><span class="tag" id="evidenceTag">AI-GENERATED</span></div>
+      <div class="list" id="deliverableList"></div>
+    </article>
+    <article class="card">
+      <h3>LaunchForge activity</h3>
+      <div class="activity" id="activity"></div>
+      <div class="kv"><b>Workspace</b><span>Product launch</span><b>Research</b><span>Live web ready</span><b>Verification</b><span>Facts / assumptions separated</span><b>Pipeline</b><span>5 gates + build loop</span></div>
+    </article>
+    <article class="card" id="tabPanel" style="grid-column:1/-1">
+      <h3>Workspace surface</h3><p id="surfaceText">Use the five gates above as your visible product spine. The right panel is the LaunchForge AI operator: ask it to research, pressure-test assumptions, design the architecture, or turn the work into a launch checklist.</p>
+    </article>
+  </section>
+</main>
+
+<aside class="right">
+  <div class="aihead"><div class="aiid"><img src="logo.svg" class="avatar" alt=""><div><strong>LaunchForge AI</strong><span>Senior product + CTO operator</span></div></div><span class="tag">LIVE</span></div>
+  <div class="progress"><div class="progline"><span>Launch progress</span><b id="progPct">20%</b></div><div class="progbar"><i id="progBar"></i></div></div>
+  <div class="chat" id="chat">
+    <div class="msg ai">Welcome. Tell me what you want to build and I’ll drive it through IDEA → VALIDATE → ARCHITECT → MONETIZE → LAUNCH PLAN.</div>
+    <div class="msg ai">I’ll separate sourced evidence from assumptions and keep execution claims tied to real tool results.</div>
+  </div>
+  <div class="suggestions">
+    <button class="chip" data-prompt="Pressure-test my idea">Pressure-test idea</button>
+    <button class="chip" data-prompt="Research the market">Research market</button>
+    <button class="chip" data-prompt="Design the architecture">Design architecture</button>
+    <button class="chip" data-prompt="Find a monetization path">Monetization</button>
+  </div>
+  <div class="composer"><textarea id="input" placeholder="Ask LaunchForge anything…"></textarea><div class="sendline"><span class="hint">Enter to send · Shift+Enter for newline</span><button class="send" id="sendBtn">Run</button></div></div>
+</aside>
+</div>
+
+<div class="modal" id="modal"><div class="modalbox"><button class="close" id="closeModal">Close</button><h3>Launch Blueprint</h3><pre id="blueprint"></pre></div></div>
+
+<script>
+const stages=[
+ {id:"idea",name:"Idea",short:"Define the wedge",desc:"Clarify the problem, user, outcome, constraints, and core hypothesis.",deliverables:["Problem Brief","ICP + user job","Assumption ledger"]},
+ {id:"validate",name:"Validate",short:"Find evidence",desc:"Research demand, alternatives, competitors, pricing signals, and feasibility.",deliverables:["Validation Brief","Evidence ledger","Fastest validation test"]},
+ {id:"architect",name:"Architect",short:"Make it buildable",desc:"Design the technical system, APIs, data, security, and implementation order.",deliverables:["Architecture Brief","Data + API map","Test strategy"]},
+ {id:"monetize",name:"Monetize",short:"Design the offer",desc:"Create the offer, pricing hypotheses, acquisition path, and key economics assumptions.",deliverables:["Monetization Brief","Offer + pricing","Acquisition loop"]},
+ {id:"launch-plan",name:"Launch Plan",short:"Ship + learn",desc:"Sequence build, QA, deployment, distribution, analytics, rollback, and monitoring.",deliverables:["Launch Blueprint","Go-live checklist","Monitor + iterate loop"]}
+];
+let stageIndex=Number(localStorage.getItem("lf-stage")||0);
+let activity=[
+ ["Workspace created","Just now"],
+ ["LaunchForge AI initialized","Just now"],
+ ["Five-stage pipeline loaded","Just now"]
+];
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem("lf-stage",stageIndex);localStorage.setItem("lf-name",$("projectName").value)}
+$("projectName").value=localStorage.getItem("lf-name")||"Untitled Product";
+$("projectName").addEventListener("change",save);
+
+function render(){
+ const s=stages[stageIndex];
+ $("stages").innerHTML=stages.map((x,i)=>`<button class="stage ${i===stageIndex?"active":i<stageIndex?"done":""}" data-index="${i}"><div class="num">0${i+1}</div><div class="name">${x.name}</div><div class="meta">${i<stageIndex?"Complete":x.short}</div></button>`).join("");
+ [...document.querySelectorAll(".stage")].forEach(b=>b.onclick=()=>{stageIndex=Number(b.dataset.index);save();render()});
+ $("gateTitle").textContent=s.name.toUpperCase();
+ $("gateDesc").textContent=s.desc;
+ $("deliverableList").innerHTML=s.deliverables.map((d,i)=>`<div class="row"><div class="check ${i===0&&stageIndex>0?"on":""}">${i===0&&stageIndex>0?"✓":"•"}</div><div><b>${d}</b><span>${i===0?"Primary output for this gate.":"Supporting output that stays attached to the project."}</span></div></div>`).join("");
+ const pct=Math.max(20,Math.round(((stageIndex+1)/stages.length)*100));
+ $("progPct").textContent=pct+"%"; $("progBar").style.width=pct+"%";
+ $("activity").innerHTML=activity.slice(-6).reverse().map(e=>`<div class="event"><span class="mark"></span><div>${e[0]}<small>${e[1]}</small></div></div>`).join("");
+ $("surfaceText").textContent=[
+ "Use this as the product cockpit: the visible five gates map to a deeper build loop of RESEARCH → DESIGN → IMPLEMENT → TEST → FIX → DEPLOY → MONITOR.",
+ "Validation should surface evidence, assumptions, competitor/pricing observations, and the smallest real-world test that can reduce uncertainty.",
+ "Architecture turns the validated concept into components, data flows, APIs, security boundaries, build order, and tests.",
+ "Monetization defines the buyer, offer, pricing hypotheses, acquisition route, and economics assumptions without pretending a plan guarantees revenue.",
+ "Launch Plan closes the loop with QA, deployment checks, distribution, analytics, rollback, and monitoring."
+ ][stageIndex];
+}
+render();
+
+function addMsg(text,who="ai"){const d=document.createElement("div");d.className="msg "+who;d.textContent=text;$("chat").appendChild(d);$("chat").scrollTop=$("chat").scrollHeight}
+function respond(prompt){
+ const p=prompt.toLowerCase(); let r;
+ if(p.includes("research")||p.includes("market")) r="I’d start with live evidence: define the exact buyer/problem, search current alternatives and pricing, inspect primary sources, then separate observed facts from interpretation. The dashboard is ready to hold that evidence under VALIDATE.";
+ else if(p.includes("architect")) r="Architecture mode: I’ll turn the validated concept into a concrete stack, component map, data model, API contract, security boundaries, implementation order, and test plan. We only lock choices that materially reduce build risk.";
+ else if(p.includes("monet")) r="Monetization mode: identify the paying user, painful outcome, offer, pricing hypothesis, acquisition loop, and the few unit-economics assumptions that need real-world validation.";
+ else if(p.includes("pressure")) r="Pressure-test mode: what must be true for this to work, what is merely assumed, what evidence exists, what could kill the idea, and what is the cheapest test that can produce useful evidence?";
+ else r="I’m treating that as the next project action. I’ll keep facts, assumptions, hypotheses, and recommendations separated and turn the answer into a reusable launch artifact rather than a one-off chat response.";
+ addMsg(r,"ai"); activity.push(["AI response generated",new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"})]); render();
+}
+function send(){const v=$("input").value.trim();if(!v)return;addMsg(v,"user");$("input").value="";activity.push(["User action: "+v.slice(0,44),new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"})]);render();setTimeout(()=>respond(v),180)}
+$("sendBtn").onclick=send;
+$("input").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send()}});
+document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{$("input").value=b.dataset.prompt;send()});
+$("advanceBtn").onclick=()=>{if(stageIndex<stages.length-1){activity.push([stages[stageIndex].name+" gate completed","Just now"]);stageIndex++;save();render();addMsg("Gate advanced to "+stages[stageIndex].name.toUpperCase()+". I’ll keep the prior decisions in context.");}else{activity.push(["Launch Blueprint marked complete","Just now"]);render();addMsg("The visible pipeline is complete. The next loop is monitor → learn → iterate.");}};
+$("newBtn").onclick=()=>{stageIndex=0;$("projectName").value="Untitled Product";localStorage.removeItem("lf-stage");localStorage.removeItem("lf-name");activity=[["New project created","Just now"]];render();addMsg("Fresh LaunchForge workspace ready. Start with the problem you want to solve.");};
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");const t=b.dataset.tab;const labels={workspace:"The main launch workspace.",research:"Research surface: live evidence, competitor/pricing observations, and validation tests.",architecture:"Architecture surface: components, data flows, APIs, security, implementation order, and tests.",monetize:"Monetization surface: buyer, offer, pricing hypotheses, acquisition loop, and economics assumptions.",launch:"Launch surface: QA, deployment verification, distribution, analytics, rollback, and monitoring.",settings:"Workspace settings and integrations belong here as the product grows."};$("surfaceText").textContent=labels[t]||labels.workspace;});
+function blueprint(){
+ const name=$("projectName").value||"Untitled Product";
+ return `# LaunchForge Blueprint — ${name}\n\nPipeline: IDEA → VALIDATE → ARCHITECT → MONETIZE → LAUNCH PLAN\nCurrent gate: ${stages[stageIndex].name}\n\n## Product spine\n- Problem Brief\n- Validation Brief\n- Architecture Brief\n- Monetization Brief\n- Launch Blueprint\n\n## Execution loop\nRESEARCH → DESIGN → IMPLEMENT → TEST → FIX → DEPLOY → MONITOR\n\n## Verification rule\nSeparate sourced facts, user-provided facts, assumptions, hypotheses, and AI-generated recommendations. Never claim execution that was not actually completed and verified.\n`;
+}
+$("exportBtn").onclick=()=>{$("blueprint").textContent=blueprint();$("modal").classList.add("show")};
+$("closeModal").onclick=()=>$("modal").classList.remove("show");
+</script>
+</body></html>
